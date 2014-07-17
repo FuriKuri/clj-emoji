@@ -1,6 +1,6 @@
 (ns clj-emoji.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defmacro emoji
+  "Create a new function for an existing function."
+  [emoji-fn alias-fn]
+  `(defn ~emoji-fn [& args#] (apply ~alias-fn args#)))
